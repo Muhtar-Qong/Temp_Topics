@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front Door Webcam</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-blue-100 min-h-screen flex flex-col items-center justify-start py-8">
+  <div class="container mt-5">
+    <h1 class="text-center mb-4 text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#512BD4] via-[#6B21A8] to-[#23A6D5] bg-clip-text text-transparent drop-shadow-2xl shadow-blue-200 animate-gradient-x">Front Door Webcam</h1>
+    <video id="webcam" width="480" height="360" style="display:none"></video>
+    <div class="row justify-content-center mb-3 mt-4">
+      <div class="col-12 col-md-auto d-flex flex-column flex-md-row gap-3 align-items-center">
+        <button id="startWebcam" class="px-5 py-2 rounded-lg font-semibold shadow-md bg-green-500 hover:bg-green-600 text-white transition-all duration-200 text-lg disabled:bg-green-300 disabled:cursor-not-allowed">Start Webcam</button>
+        <button id="stopWebcam" class="px-5 py-2 rounded-lg font-semibold shadow-md bg-red-500 hover:bg-red-600 text-white transition-all duration-200 text-lg disabled:bg-red-300 disabled:cursor-not-allowed">Stop Webcam</button>
+        <button id="startMotion" class="px-5 py-2 rounded-lg font-semibold shadow-md bg-blue-500 hover:bg-blue-600 text-white transition-all duration-200 text-lg disabled:bg-blue-300 disabled:cursor-not-allowed">Start Motion Detection</button>
+        <button id="stopMotion" class="px-5 py-2 rounded-lg font-semibold shadow-md bg-gray-500 hover:bg-gray-600 text-white transition-all duration-200 text-lg disabled:bg-gray-300 disabled:cursor-not-allowed">Stop Motion Detection</button>
+      </div>
+    </div>
+    <div class="row justify-content-center g-4">
+      <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+        <label class="fw-bold mb-2 text-lg text-gray-700" id="webcamCaption">Webcam feed:</label>
+        <canvas
+          id="webcamCanvas"
+          width="480"
+          height="360"
+          class="border-2 border-blue-300 rounded-xl shadow-lg img-fluid"
+          style="display: block; margin: auto; max-width: 100%; height: auto;"
+        ></canvas>
+        <div id="webcamNumber" class="mt-2 text-base text-blue-700 font-semibold">Webcam #1</div>
+      </div>
+      <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+        <label class="fw-bold mb-2 text-lg text-gray-700" id="changeCaption">Change detection:</label>
+        <canvas
+          id="changeCanvas"
+          width="480"
+          height="360"
+          class="border-2 border-purple-300 rounded-xl shadow-lg img-fluid"
+          style="display: block; margin: auto; max-width: 100%; height: auto;"
+        ></canvas>
+      </div>
+      <div class="col-12 col-md-4 text-center">
+        <label class="fw-bold mb-2 text-lg text-gray-700" id="screenshotCaption">Screenshot at detection:</label>
+        <canvas
+          id="screenshotCanvas"
+          width="480"
+          height="360"
+          class="border-2 border-pink-300 rounded-xl shadow-lg img-fluid"
+          style="display: block; margin: auto; max-width: 100%; height: auto;"
+        ></canvas>
+        <div id="screenshotDatetime" class="mt-2 text-base text-gray-500 font-medium"></div>
+      </div>
+    </div>
+  </div>
+  <script src="webcam.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

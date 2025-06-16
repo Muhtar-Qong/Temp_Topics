@@ -1,0 +1,8 @@
+{
+  // Ensure all .js files are always visible in the Explorer
+  "files.exclude": {
+    "*.js": false,
+    "webcam.js": false,
+    "serverCore.js": false
+  }
+}
