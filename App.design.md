@@ -8,9 +8,9 @@ This application is a simple, modern Node.js-based web app for monitoring a fron
   - Serves static files (HTML, JS, CSS)
   - Handles root and static asset requests
 - **Frontend:** HTML, JavaScript, Bootstrap, Tailwind CSS
-  - Responsive grid layout (Bootstrap)
-  - Modern button and font styling (Tailwind)
-  - Webcam and motion detection logic in `webcam.js`
+  - Responsive grid layout (use Bootstrap)
+  - Modern button and font styling (use Tailwind)
+  - Webcam and motion detection logic in `webcam.js` (all logics should be put in this file)
 
 ## Main Components
 
@@ -21,16 +21,15 @@ This application is a simple, modern Node.js-based web app for monitoring a fron
 
 ### 2. User Interface (`index.html`)
 - **Header:** App title
-  - Modern, colorful gradient using Tailwind (`bg-gradient-to-r from-[#512BD4] via-[#6B21A8] to-[#23A6D5] bg-clip-text text-transparent drop-shadow-2xl`)
+  - Modern, colorful gradient using Tailwind CSS 
   - Responsive, large font for visibility
 - **Controls:**
   - Start Webcam
   - Stop Webcam
   - Start Motion Detection
   - Stop Motion Detection
-  - Buttons use Tailwind for modern look and clear disabled state (`disabled:bg-*-300 disabled:cursor-not-allowed`)
+  - Buttons use Tailwind for modern look and clear disabled state
 - **Webcam Feed:**
-  - Live video (hidden)
   - Canvas for live feed
   - Below the canvas, a label displays the webcam number (e.g., "Webcam #1")
   - Canvas for change detection
@@ -66,17 +65,14 @@ This application is a simple, modern Node.js-based web app for monitoring a fron
 - **Separation of Concerns:** Server, UI, and logic are in separate files.
 - **Extensibility:** Easy to add new features (e.g., saving screenshots, notifications).
 - **Visuals:**
-  - Colorful, modern gradients and shadows for the title
+  - Colorful, modern gradients and shadows for the title (use "Blazor color transition")
   - Disabled buttons are clearly styled
-  - Webcam number is displayed below the feed
+  - Webcam number is displayed below the feed (Webcam feed canvas)
 
 ## File Structure
 - `index.html` — Main UI
 - `webcam.js` — Client-side logic
 - `server.js` / `serverCore.js` — Node.js server
 - `README.md` — Project info
-- `App.prompt.md` — Prompt and instructions
+- `App.prompt.md` — Keep all prompts and instructions in this file for later a reference.
 - `App.design.md` — (This file)
-
----
-This design file serves as a reference for understanding and extending the application, including all recent style updates and error fixes.
